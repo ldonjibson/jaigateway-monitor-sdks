@@ -1,0 +1,17 @@
+name: insight_flutter
+description: Error and breadcrumb reporting SDK for Insight (error + uptime monitoring). Works on Android, iOS, web and desktop with no native plugins.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

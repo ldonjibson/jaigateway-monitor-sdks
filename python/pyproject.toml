@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "insight-sdk"
+version = "1.4.0"
+description = "Python SDK for Insight error monitoring: background delivery, retries, breadcrumbs, first-class integrations for Django, Flask, FastAPI, Litestar, Sanic, aiohttp, Tornado, Quart, Pyramid, Bottle, Falcon, Celery, RQ, Dramatiq and Huey."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+dependencies = []
+keywords = ["insight", "error-tracking", "monitoring", "exceptions", "sentry-alternative"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Framework :: Django",
+  "Framework :: Flask",
+  "Framework :: FastAPI",
+  "Framework :: Django :: 4",
+  "Framework :: Pyramid",
+  "Framework :: Tornado",
+  "Framework :: aiohttp",
+  "Framework :: Celery",
+  "Topic :: Software Development :: Debuggers",
+  "Topic :: System :: Monitoring",
+  "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+# Extras only pin the framework; the SDK itself has no dependencies.
+django = ["Django>=3.2"]
+drf = ["Django>=3.2", "djangorestframework>=3.12"]
+flask = ["Flask>=2.0"]
+fastapi = ["fastapi>=0.80"]
+starlette = ["starlette>=0.20"]
+litestar = ["litestar>=2.0"]
+sanic = ["sanic>=21.12"]
+aiohttp = ["aiohttp>=3.8"]
+tornado = ["tornado>=6.0"]
+quart = ["quart>=0.18"]
+pyramid = ["pyramid>=2.0"]
+bottle = ["bottle>=0.12"]
+falcon = ["falcon>=3.0"]
+celery = ["celery>=5"]
+rq = ["rq>=1.10"]
+dramatiq = ["dramatiq>=1.12"]
+huey = ["huey>=2.4"]
+test = [
+  "pytest>=7", "httpx", "requests", "SQLAlchemy",
+  "Django>=3.2", "djangorestframework>=3.12", "Flask>=2.0", "fastapi>=0.80", "starlette>=0.20", "litestar>=2.0",
+  "sanic>=21.12", "sanic-testing", "aiohttp>=3.8", "tornado>=6.0", "quart>=0.18", "pyramid>=2.0", "setuptools<81",
+  "webtest", "bottle>=0.12", "falcon>=3.0", "celery>=5", "rq>=1.10", "fakeredis", "dramatiq>=1.12", "huey>=2.4",
+]
+
+[project.scripts]
+insight-sdk = "insight_sdk.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+insight_sdk = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

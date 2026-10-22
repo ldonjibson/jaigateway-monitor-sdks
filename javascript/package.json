@@ -1,0 +1,119 @@
+{
+  "name": "insight-sdk",
+  "version": "1.6.0",
+  "description": "Error monitoring SDK for Insight: browser, Node, React, Express and Next.js. Zero dependencies.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/node.cjs",
+  "module": "./dist/node.js",
+  "browser": "./dist/browser.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "browser": "./dist/browser.js",
+      "import": "./dist/node.js",
+      "require": "./dist/node.cjs"
+    },
+    "./browser": {
+      "types": "./src/index.d.ts",
+      "default": "./dist/browser.js"
+    },
+    "./node": {
+      "types": "./src/index.d.ts",
+      "import": "./dist/node.js",
+      "require": "./dist/node.cjs"
+    },
+    "./react": {
+      "types": "./src/react.d.ts",
+      "default": "./dist/react.js"
+    },
+    "./package.json": "./package.json",
+    "./tracing": {
+      "types": "./src/tracing.d.ts",
+      "default": "./dist/tracing.js"
+    },
+    "./replay": {
+      "types": "./src/replay.d.ts",
+      "default": "./dist/replay.js"
+    },
+    "./next": {
+      "types": "./src/next.d.ts",
+      "default": "./dist/next.js"
+    },
+    "./next-pages": {
+      "types": "./src/next-pages.d.ts",
+      "default": "./dist/next-pages.js"
+    },
+    "./react-router": {
+      "types": "./src/react-router.d.ts",
+      "default": "./dist/react-router.js"
+    },
+    "./vue": {
+      "types": "./src/vue.d.ts",
+      "default": "./dist/vue.js"
+    }
+  },
+  "bin": {
+    "insight-sdk": "./bin/insight-sdk.js"
+  },
+  "files": [
+    "dist",
+    "src/index.d.ts",
+    "src/react.d.ts",
+    "bin",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "src/tracing.d.ts",
+    "src/replay.d.ts",
+    "src/next.d.ts",
+    "src/next-pages.d.ts",
+    "src/react-router.d.ts",
+    "src/vue.d.ts"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "peerDependencies": {
+    "next": ">=13",
+    "react": ">=16.8",
+    "react-router": ">=6.4",
+    "vue": ">=3"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "next": {
+      "optional": true
+    },
+    "react-router": {
+      "optional": true
+    },
+    "vue": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "error-tracking",
+    "monitoring",
+    "sentry-alternative",
+    "insight"
+  ],
+  "devDependencies": {
+    "@rrweb/record": "^2.1.7",
+    "esbuild": "^0.25.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^8.4.0",
+    "vue": "^3.5.44",
+    "vue-router": "^5.4.0"
+  }
+}

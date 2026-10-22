@@ -1,0 +1,40 @@
+{
+    "name": "insight/sdk",
+    "description": "PHP and Laravel SDK for Insight error and uptime monitoring.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["insight", "error-tracking", "monitoring", "laravel", "sentry-like"],
+    "require": {
+        "php": ">=8.0",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "suggest": {
+        "laravel/framework": "Laravel 10, 11 or 12 get automatic integration (service provider, breadcrumbs, artisan insight:test).",
+        "ext-apcu": "Shares the pause and rate-limit state between requests without touching the disk."
+    },
+    "autoload": {
+        "psr-4": {
+            "Insight\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Insight\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Insight\\Laravel\\InsightServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
+}
